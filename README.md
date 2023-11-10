@@ -16,3 +16,6 @@ If you are using Bundle, insert the following line in your .vimrc:
 
 In video mode, press 'q' or click on the cross to quit. Press ' ' to pause and resume.
 In image mode, do not press the cross (known bug), press 'q' instead.
+
+# Requirements
+You can find the requirements in `autoload/vimdeo.vim`
