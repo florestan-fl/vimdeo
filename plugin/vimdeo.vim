@@ -34,8 +34,9 @@ if video:
     if (cap.isOpened()== False): 
         print("Error opening video file") 
   
+    quitting=False
     # Read until video is completed 
-    while(cap.isOpened()): 
+    while(cap.isOpened() and not quitting): 
           
     # Capture frame-by-frame 
         ret, frame = cap.read() 
@@ -49,6 +50,12 @@ if video:
             elif cv2.waitKey(25) & 0xFF == ord(' '): 
                 # Wait until Space is released to avoid multiple keypresses
                 while cv2.waitKey(25) & 0xFF != ord(' '):
+                    if cv2.waitKey(25) & 0xFF == ord('q'): 
+                        quitting=True
+                        break
+                    elif cv2.getWindowProperty('Frame', cv2.WND_PROP_VISIBLE) < 1:
+                        quittin=True
+                        break
                     pass
             elif cv2.getWindowProperty('Frame', cv2.WND_PROP_VISIBLE) < 1:
                 break
